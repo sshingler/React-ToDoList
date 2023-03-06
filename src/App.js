@@ -11,6 +11,7 @@ function App() {
   ]);
 
   const [newItemName, setNewItemName] = useState (""); 
+  const [newItemPriority, setNewItemPriority] = useState (""); 
 
   //render items 
   const itemNodes = items.map ((item, index) => {
@@ -25,39 +26,56 @@ function App() {
     setNewItemName(event.target.value);
   }
 
+  function handleRadioChange(event) {
+    const result = event.target.value 
+    setNewItemPriority(result);
+  }
+
+
   function saveNewItem(event) {
     event.preventDefault();
     const newItem = {
       name: newItemName,
-      priority: "low", 
+      priority: newItemPriority, 
     };
     const newItems = [...items, newItem];
     setItems(newItems);
     setNewItemName(""); 
-
   }
 
 
 
 
   return (
+
+
+      
+    
     <div className="App">
     <h1>ToDo's</h1>  
     <hr></hr>
-    <ul> 
-      {itemNodes}      
-    </ul>
 
     <form onSubmit={saveNewItem}>
     <label htmlFor = "item-name">Add a new task:</label>
     <input id="item-name" type="text" value={newItemName} onChange={handleInputChange} />
-    <input type="submit" value="Save New Task"/>  
+    
+    
+    <label htmlFor = "item-priority">High</label>
+    <input id="item-priority" name ="item-priority" type="radio" value={newItemPriority}  onChange={handleRadioChange}/>
 
+    <label htmlFor = "item-priority">Low</label>
+    <input id="item-priority" name ="item-priority" type="radio" value={newItemPriority} checked={true} onChange={handleRadioChange}/>
+
+    <input type="submit" value="Save Task"/>  
     </form>
 
+    <ul> 
+      {itemNodes}      
+    </ul>
 
 
     </div>
+
   );
 }
 
