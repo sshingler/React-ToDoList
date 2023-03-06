@@ -5,19 +5,20 @@ function App() {
 
   //declare initial list of objects
   const [items, setItems] = useState ([
-    {name: "Buy shopping", priority:"high"}, 
-    {name: "Clean Bathroom", priority:"low"},
-    {name: "Car's MOT", priority:"high"},
+    {name: "Buy shopping", priority:true}, 
+    {name: "Clean Bathroom", priority:false},
+    {name: "Car's MOT", priority:true},
   ]);
 
   const [newItemName, setNewItemName] = useState (""); 
-  const [newItemPriority, setNewItemPriority] = useState (""); 
+  const [newItemPriority, setNewItemPriority] = useState (false); 
 
   //render items 
   const itemNodes = items.map ((item, index) => {
     return (
       <li key = {index}>
         <span>{item.name}</span>
+        {/* <span>{item.priority}</span> */}
       </li>
     )
   })
