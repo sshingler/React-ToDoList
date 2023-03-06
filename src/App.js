@@ -11,14 +11,14 @@ function App() {
   ]);
 
   const [newItemName, setNewItemName] = useState (""); 
-  const [newItemPriority, setNewItemPriority] = useState (false); 
+  const [newItemPriority, setNewItemPriority] = useState (); 
 
   //render items 
   const itemNodes = items.map ((item, index) => {
     return (
       <li key = {index}>
         <span>{item.name}</span>
-        {/* <span>{item.priority}</span> */}
+        {/* {item.priority ? <span>High</span> : <span>Low</span>} */} 
       </li>
     )
   })
