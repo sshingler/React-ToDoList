@@ -27,8 +27,7 @@ function App() {
   }
 
   function handleRadioChange(event) {
-    const result = event.target.value 
-    setNewItemPriority(result);
+    setNewItemPriority(event.target.value);
   }
 
 
@@ -48,15 +47,12 @@ function App() {
 
   return (
 
-
-      
-    
     <div className="App">
     <h1>ToDo's</h1>  
     <hr></hr>
 
     <form onSubmit={saveNewItem}>
-    <label htmlFor = "item-name">Add a new task:</label>
+    <label htmlFor = "item-name">Add new:</label>
     <input id="item-name" type="text" value={newItemName} onChange={handleInputChange} />
     
     
@@ -66,7 +62,7 @@ function App() {
     <label htmlFor = "item-priority">Low</label>
     <input id="item-priority" name ="item-priority" type="radio" value={newItemPriority} checked={true} onChange={handleRadioChange}/>
 
-    <input type="submit" value="Save Task"/>  
+    <input className='button' type="submit" value="Save Task"/>  
     </form>
 
     <ul> 
