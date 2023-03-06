@@ -5,9 +5,9 @@ function App() {
 
   //declare initial list of objects
   const [items, setItems] = useState ([
-    {name: "Buy shopping", priority:"high"}, 
-    {name: "Clean Bathroom", priority:"low"},
-    {name: "Car's MOT", priority:"high"},
+    {name: "Buy shopping", highPriority:true}, 
+    {name: "Clean Bathroom", highPriority:false},
+    {name: "Car's MOT", highPriority:true},
   ]);
 
   const [newItemName, setNewItemName] = useState (""); 
@@ -29,7 +29,7 @@ function App() {
     event.preventDefault();
     const newItem = {
       name: newItemName,
-      priority: "low", 
+      highPriority: false, 
     };
     const newItems = [...items, newItem];
     setItems(newItems);
